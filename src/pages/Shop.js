@@ -6,6 +6,7 @@ import { fetchBrands, fetchDevices, fetchTypes } from "../http/deviceAPI";
 import Pages from "../components/Pages";
 import CategoryBar from '../components/CategoryBar';
 import BrandBar from '../components/BrandBar';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const Shop = observer(() => {
   const { device } = useContext(Context)
@@ -27,20 +28,22 @@ const Shop = observer(() => {
   }, [device.page, device.selectedType, device.selectedBrand,])
 
   return (
-    <section class="category-section spad">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 order-2 order-lg-1">
-            <CategoryBar />
+    <Container>
+      <Row>
+        <Col lg={3}>
+          <CategoryBar />
+        </Col>
+        <Col lg={9}>
+          <Row>
             <BrandBar />
-          </div>
-          <div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
+          </Row>
+          <Row>
             <DeviceList />
             <Pages />
-          </div>
-        </div>
-      </div>
-    </section>
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   )
 })
 

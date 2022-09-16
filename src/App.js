@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from './components/AppRouter';
-import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/Navbar/NavBar';
 import { observer } from 'mobx-react-lite';
 import Preloader from './components/preloader/preloader';
 import {Context} from "./index";

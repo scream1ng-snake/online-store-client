@@ -2,7 +2,7 @@ import { ADMIN_ROUTE, CART_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE,
 import Admin from "../pages/Admin.js";
 import Cart from "../pages/Cart.js";
 import Checkout from "../pages/Checkout";
-import Main from "../pages/Main";
+import Main from "../pages/Main/Main";
 import Auth from "../pages/Auth";
 import Device from "../pages/Device";
 import Category from "../pages/Category";

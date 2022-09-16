@@ -55,13 +55,11 @@ export default function Device() {
                           {info.title}: {info.description}
                         </p>
                       )
-
                     }
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
