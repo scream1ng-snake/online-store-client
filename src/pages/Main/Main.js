@@ -43,7 +43,7 @@ function MainPage() {
       <div className='legend'>
         <Container>
           <Row>
-            <Col xxl={6} className="legend-mark">
+            <Col className="legend-mark">
               <div className='legend-label'>
                 ЛЕГЕНДЫ
               </div>
@@ -64,7 +64,7 @@ function MainPage() {
                 <Image className='legend-image' src={guitarImage} />
               </div>
             </Col>
-            <Col>
+            <Col xxl={6} md={5}>
               <Image src={legendImage} />
             </Col>
           </Row>
@@ -91,7 +91,7 @@ function MainPage() {
                   <p className='info-title'>ТОП-100</p>
                   <p className='info-description'>Входит в топ 100 мировых гитаристов</p>
                 </div>
-                <div className='info-item'>
+                <div className='info-item'> 
                   <p className='info-title'>ТОП-100</p>
                   <p className='info-description'>Входит в топ 100 мировых гитаристов</p>
                 </div>

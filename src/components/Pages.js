@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
-import {observer} from "mobx-react-lite";
-import {Context} from "../index";
-import {Pagination} from "react-bootstrap";
+import React, { useContext } from 'react';
+import { observer } from "mobx-react-lite";
+import { Context } from "../index";
+import { Pagination } from "react-bootstrap";
 
 const Pages = observer(() => {
-    const {device} = useContext(Context)
+    const { device } = useContext(Context)
     const pageCount = Math.ceil(device.totalCount / device.limit)
     const pages = []
 
@@ -13,17 +13,15 @@ const Pages = observer(() => {
     }
 
     return (
-        <Pagination className="mt-3">
+        <div className='pages'>
             {pages.map(page =>
-                <Pagination.Item
+                <div className={`pages-item ${device.page === page && "active"}`}
                     key={page}
-                    active={device.page === page}
-                    onClick={() => device.setPage(page)}
-                >
-                    {page}
-                </Pagination.Item>
+                    onClick={() => device.setPage(page)}>
+                    <span>{page}</span>
+                </div>
             )}
-        </Pagination>
+        </div>
     );
 });
 

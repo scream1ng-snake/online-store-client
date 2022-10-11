@@ -17,15 +17,15 @@ export const GuitarCarusel = () => {
     <Carousel activeIndex={index} onSelect={handleSelect}>
       {guitars.map((g) =>
         <Carousel.Item>
-          <Col className='carusel-item'>
-          <img
-            className="carusel-image"
-            src={g.image}
-          />
-          <Carousel.Caption>
-            <p className='carusel-caption'>{g.name}</p>
-          </Carousel.Caption>
-          </Col>
+          <div className='carusel-item'>
+            <img
+              className="carusel-image"
+              src={g.image}
+            />
+            <Carousel.Caption>
+              <p className='carusel-caption'>{g.name}</p>
+            </Carousel.Caption>
+          </div>
         </Carousel.Item>
       )}
     </Carousel>

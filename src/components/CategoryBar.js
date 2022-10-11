@@ -1,28 +1,30 @@
 import React, { useContext } from 'react';
 import { Context } from "../index";
 import { observer } from 'mobx-react-lite';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const CategoryBar = observer(() => {
   const { device } = useContext(Context)
 
   return (
-    <ListGroup as="ul">
-      {!device.types || device.types.length === 0 ?
-        <ListGroupItem disabled>Нет категорий</ListGroupItem>
-        :
-        device.types.map(type =>
-          <ListGroupItem
-            className={type.id === device.selectedType.id && "active"}
-            onClick={() => device.setSelectedType(type)}
-            key={type.id}
-          >
-            {type.name}
-          </ListGroupItem>
-        )
-      }
-      <ListGroupItem></ListGroupItem>
-    </ListGroup>
+    <div className='category-bar'>
+      <div className="category-title">Категории</div>
+      <div className="category-list">
+        {!device.types || device.types.length === 0 ?
+          <div className='category-item'>
+            <span>Нет категорий</span>
+          </div>
+          :
+          device.types.map(type =>
+            <div
+              className={`category-item ${type.id === device.selectedType.id && "active"}`}
+              onClick={() => device.setSelectedType(type)}
+              key={type.id}>
+              <span>{type.name} &gt;</span>
+            </div>
+          )
+        }
+      </div>
+    </div>
   )
 })
 

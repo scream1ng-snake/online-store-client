@@ -28,22 +28,26 @@ const Shop = observer(() => {
   }, [device.page, device.selectedType, device.selectedBrand,])
 
   return (
-    <Container>
-      <Row>
-        <Col lg={3}>
-          <CategoryBar />
-        </Col>
-        <Col lg={9}>
-          <Row>
-            <BrandBar />
-          </Row>
-          <Row>
-            <DeviceList />
-            <Pages />
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+    <div className="shop">
+      <Container>
+        <Row>
+          <Col lg={3}>
+            <Row>
+              <CategoryBar />
+            </Row>
+          </Col>
+          <Col lg={9}>
+            <Row>
+              <BrandBar />
+            </Row>
+            <Row>
+              <DeviceList />
+              <Pages />
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   )
 })
 

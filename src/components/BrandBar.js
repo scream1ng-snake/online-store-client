@@ -9,21 +9,24 @@ const BrandBar = observer(() => {
   const { device } = useContext(Context)
 
   return (
-    <ListGroup horizontal>
-      {!device.brands || device.brands.length === 0 ?
-        <div>Нет брендов</div>
-        :
-        device.brands.map(brands =>
-          <ListGroupItem
-            className={brands.id === device.selectedBrand.id && "active"}
-            onClick={() => device.setSelectedBrand(brands)}
-            key={brands.id}
-          >
-            {brands.name}
-          </ListGroupItem>
-        )
-      }
-    </ListGroup>
+    <div className="brand-bar">
+      <div className="brand-title">Бренды</div>
+      <div className='brand-list'>
+        {!device.brands || device.brands.length === 0 ?
+          <div className='brand-item'>
+            <span>Нет брендов</span>
+          </div>
+          :
+          device.brands.map(brands =>
+            <div className={`brand-item ${brands.id === device.selectedBrand.id && "active"}`}
+              onClick={() => device.setSelectedBrand(brands)}
+              key={brands.id}>
+              <span>{brands.name} &gt;</span>
+            </div>
+          )
+        }
+      </div>
+    </div>
   )
 })
 

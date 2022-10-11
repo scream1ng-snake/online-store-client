@@ -7,7 +7,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { login, registration } from "../http/userAPI";
 import { observer } from "mobx-react-lite";
 import { Context } from "../index";
-import { LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from '../helpers/consts';
+import { LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE } from '../helpers/consts';
 import { getCart } from '../http/cartAPI';
 
 const Auth = observer(() => {
@@ -27,15 +27,16 @@ const Auth = observer(() => {
     try {
       let data;
       if (isLogin) {
-        data = await login(email, password);
+        data = await login(email, password)
       } else {
         data = await registration(email, password, username);
       }
+      
       user.setUser(data)
       user.setIsAuth(true)
       const cartData = await getCart(user.id);
       cart.setCart(cartData);
-
+      
       navigate(MAIN_ROUTE)
     } catch (e) {
       alert(e.response.data?.message)
@@ -82,7 +83,8 @@ const Auth = observer(() => {
               </div>
             }
             <Button
-              variant={"outline-success"}
+              className="mt-3"
+              variant={"outline-dark"}
               onClick={click}
             >
               {isLogin ? 'Войти' : 'Регистрация'}

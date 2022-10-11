@@ -21,7 +21,7 @@ export default class CartStore {
   }
 
   addDevice(d) {
-    this._cart.devices.push(d);
+    if (!this._cart.devices.includes(d)) this._cart.devices.push(d);
   }
 
   removeDevice(d) {

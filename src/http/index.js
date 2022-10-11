@@ -1,12 +1,14 @@
 import axios from "axios";
 
 const $host = axios.create({
+    withCredentials: true,
+    origin: "http://localhost:7000",
     baseURL: "http://localhost:7000"
 })
 
 const $authHost = axios.create({
     withCredentials: true,
-    origin,
+    origin: "http://localhost:7000",
     baseURL: "http://localhost:7000"
 })
 
@@ -17,6 +19,7 @@ const authInterceptor = config => {
 }
 
 $authHost.interceptors.request.use(authInterceptor)
+
 
 export {
     $host,
